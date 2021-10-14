@@ -5,14 +5,18 @@ form.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(event) {
   event.preventDefault();
+  
+  const email = form.elements.email.value
+  const password = form.elements.password.value
 
-    const formData = new FormData(event.currentTarget);
-    
+  const formContent = { email, password }
 
-  console.log(formData);
+  if (email === "" || password === "") {
+    alert("All fields must be  filled!")
+  } else {
 
-  formData.forEach((value, name) => {
-    console.log('onFormSubmit -> name', name);
-    console.log('onFormSubmit -> value', value);
-  });
+    console.log(formContent)
+  }
+  
+  form.reset()
 }
